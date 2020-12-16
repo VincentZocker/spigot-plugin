@@ -1,7 +1,7 @@
-name: empty-spigot-plugin
+name: netherite-scrap-plugin
 version: @version@
 description: An plugin for Spigot with Gradle
-main: net.javaforge.minecraft.spigot.plugin.EmptySpigotPlugin
+main: net.javaforge.minecraft.spigot.plugin.NetheriteScrapPlugin
 
 commands:
   hello:
