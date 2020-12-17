@@ -49,13 +49,20 @@ repositories {
     }
 }
 
+ext {
+    minecraftVersion = "1.16.4-R0"
+    vincModVersion = "1"
+}
+
 group = "net.javaforge.minecraft.spigot"
-version = project.property("version")
+version = getTag() + "-" + minecraftVersion
 sourceCompatibility = 1.8
 
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+println('Plugin version: ' + version)
 
 dependencies {
-    compile "org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT", {
+    compile "org.spigotmc:spigot-api:${minecraftVersion}.1-SNAPSHOT", {
         ext { fatJarExclude = true }
     }
 
@@ -64,10 +71,9 @@ dependencies {
 
 processResources {
     filter ReplaceTokens, tokens: [
-            "version": project.property("version")
+            "version": version
     ]
 }
-
 
 clean {
     delete "testserver/"
@@ -98,4 +104,25 @@ jar {
     actions = []
     dependsOn = []
     dependsOn('fatJar')
+}
+
+static def getTag() {
+    def tagVersion = "$System.env.VERSION"
+    if (tagVersion == "null") {
+        // with local un-commited changes a -DIRTY is added
+        def processChanges = "git diff-index --name-only HEAD --".execute()
+        def dirty = ""
+        if (!processChanges.text.toString().trim().isEmpty())
+            dirty = "-DIRTY"
+
+        def process = "git describe --tags".execute()
+        tagVersion = process.text.toString().trim() + dirty
+    } else {
+        def tagVersionToken = tagVersion.split("/")
+        if (tagVersionToken.size() > 2)
+            tagVersion = tagVersionToken[2]
+        else
+            tagVersion = tagVersionToken[0]
+    }
+    return tagVersion
 }
