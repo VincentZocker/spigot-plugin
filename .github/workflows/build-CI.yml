@@ -17,5 +17,5 @@ jobs:
         uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
-          name: Spigot plugin
+          name: NetherScrap plugin
           path: build/libs/*.jar
