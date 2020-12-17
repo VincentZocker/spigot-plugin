@@ -2,6 +2,7 @@ name: netherite-scrap-plugin
 version: @version@
 description: An plugin for Spigot with Gradle
 main: net.javaforge.minecraft.spigot.plugin.NetheriteScrapPlugin
+authors : [Vincent, Paju]
 
 commands:
   hello:
