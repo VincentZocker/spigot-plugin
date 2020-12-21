@@ -11,6 +11,12 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         ShapelessRecipe blumeRezept = new ShapelessRecipe(blume);
         blumeRezept.addIngredient(Material.EGG);
         this.getServer().addRecipe(blumeRezept);
+
+        ItemStack blazerod = new ItemStack(Material.BLAZE_ROD);
+        ShapelessRecipe blazerodRezept = new ShapelessRecipe(blazerod);
+        blazerodRezept.addIngredient(Material.GOLD_BLOCK);
+        blazerodRezept.addIngredient(2, Material.STICK);
+        this.getServer().addRecipe(blazerodRezept);
     }
 
     public void onDisable() {
