@@ -12,9 +12,15 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         blumeRezept.addIngredient(Material.EGG);
         this.getServer().addRecipe(blumeRezept);
 
+        ItemStack enchantedGoldenAppleItem = new ItemStack(Material.ENCHANTED_GOLDEN_APPLE);
+        ShapelessRecipe enchantedGoldenAppleRecipe = new ShapelessRecipe(enchantedGoldenAppleItem);
+        enchantedGoldenAppleRecipe.addIngredient(8, Material.GOLD_BLOCK);
+        enchantedGoldenAppleRecipe.addIngredient(1, Material.APPLE);
+        this.getServer().addRecipe(enchantedGoldenAppleRecipe);
+
         ItemStack blazerod = new ItemStack(Material.BLAZE_ROD);
         ShapelessRecipe blazerodRezept = new ShapelessRecipe(blazerod);
-        blazerodRezept.addIngredient(Material.GOLD_BLOCK);
+        blazerodRezept.addIngredient(Material.GOLD_INGOT);
         blazerodRezept.addIngredient(2, Material.STICK);
         this.getServer().addRecipe(blazerodRezept);
     }
