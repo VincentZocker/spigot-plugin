@@ -38,13 +38,10 @@ docker run -d \
 ### Apply new plugin
 
 Get plugin link from https://github.com/VincentZocker/spigot-plugin/releases
-
-'''wget https://github.com/VincentZocker/spigot-plugin/releases/download/1.2.0/<Your NetherScrap-XXXXX.jar> -P dataSpigot/plugins/'''
+```wget https://github.com/VincentZocker/spigot-plugin/releases/download/1.2.0/<Your NetherScrap-XXXXX.jar> -P dataSpigot/plugins/```
   
 look for current plugin
-
-'''ls ~/ataSpigot/plugins/```
+```ls ~/ataSpigot/plugins/```
 
 remove old plugin
-
 ```rm plugins/<Your OLD NetherScrap-XXXXX.jar>```
