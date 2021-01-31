@@ -32,7 +32,9 @@ docker run -d \
 ### Server stop & start
 
 ```ssh latitude```
+
 ```docker stop spigot```
+
 ```docker start spigot```
 
 ### Apply new plugin
