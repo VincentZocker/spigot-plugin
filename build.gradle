@@ -7,18 +7,14 @@ buildscript {
 
     dependencies {
         classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
-        classpath 'com.github.rodionmoiseev.gradle.plugins:idea-utils:0.2'
-        classpath 'de.undercouch:gradle-download-task:4.1.1'
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'eu.appsatori.fatjar'
-apply plugin: 'de.undercouch.download'
 
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'idea-utils'
 
 idea {
     project {
