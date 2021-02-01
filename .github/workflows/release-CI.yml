@@ -20,6 +20,13 @@ jobs:
         run: ./gradlew build
         env:
           VERSION: ${{ github.ref }}
+      - name: grab artifact
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: NetherScrap plugin
+          path: build/libs/*.jar
+          if-no-files-found: error
       - run: |
           assetsAAR=$(find build/libs -name *.jar | while read -r asset ; do echo "-a $asset" ; done)
           VERSION=$(echo $VERSION | cut -d'/' -f3)
