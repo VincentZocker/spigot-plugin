@@ -50,7 +50,7 @@ repositories {
 }
 
 ext {
-    minecraftVersion = "1.16.4-R0"
+    minecraftVersion = "1.16.5-R0"
     vincModVersion = "1"
 }
 
