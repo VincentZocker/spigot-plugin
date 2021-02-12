@@ -39,11 +39,23 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         }
     }
 
+    public class DragonbogenListener implements Listener {
+        @EventHandler
+        public void onEvent(ProjectileHitEvent event) {
+            Projectile geschoss = event.getEntity();
+
+            if (geschoss.getType() == EntityType.DRAGON_FIREBALL) {
+
+            }
+        }
+    }
+
     public void onEnable() {
 
         PluginManager pluginManager = this.getServer().getPluginManager();
-        EnderbogenListener listener = new EnderbogenListener();
-        pluginManager.registerEvents(listener, this);
+
+        pluginManager.registerEvents(new EnderbogenListener(), this);
+        pluginManager.registerEvents(new DragonbogenListener(), this);
 
         this.getServer().addRecipe(getEnderbogenRezept());
 
@@ -82,6 +94,14 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         enchantedGoldenAppleRecipe.addIngredient(8, Material.GOLD_BLOCK);
         enchantedGoldenAppleRecipe.addIngredient(1, Material.APPLE);
         return enchantedGoldenAppleRecipe;
+    }
+
+    private ShapelessRecipe gitnetherwartrecipe() {
+        ItemStack netherwartItem = new ItemStack(Material.NETHER_WART);
+        ShapelessRecipe netherwartRecipe = new ShapelessRecipe(netherwartItem);
+        netherwartRecipe.addIngredient(8, Material.HAY_BLOCK);
+        netherwartRecipe.addIngredient(1, Material.NETHER_BRICKS);
+        return netherwartRecipe;
     }
 
     private ShapelessRecipe getBlazerodRezept() {
