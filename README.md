@@ -40,8 +40,11 @@ docker run -d \
 ### Create pull request
 
 ```git checkout -b <pull request name>``` create branch
+
 ```git add . -p``` add changes
+
 ```git commit -m <commit name>``` create commit
+
 ```git push``` push to server and follow the output twice
 
 ### Apply new plugin
