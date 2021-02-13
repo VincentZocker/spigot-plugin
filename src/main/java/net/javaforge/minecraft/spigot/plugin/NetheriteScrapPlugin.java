@@ -39,7 +39,34 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         }
     }
 
+    public class DragonbogenListener implements Listener {
+        @EventHandler
+        public void onEvent(ProjectileHitEvent event) {
+            Projectile geschoss = event.getEntity();
+
+            if (geschoss.getType() == EntityType.DRAGON_FIREBALL) {
+
+            }
+        }
+    }
+
     public void onEnable() {
+
+        PluginManager pluginManager = this.getServer().getPluginManager();
+
+        pluginManager.registerEvents(new EnderbogenListener(), this);
+        pluginManager.registerEvents(new DragonbogenListener(), this);
+
+        this.getServer().addRecipe(getEnderbogenRezept());
+
+        this.getServer().addRecipe(getShapelessRecipe());
+
+        this.getServer().addRecipe(getEnchantedGoldenAppleRecipe());
+
+        this.getServer().addRecipe(getBlazerodRezept());
+    }
+
+    private ShapedRecipe getEnderbogenRezept() {
         ItemStack enderbogen = new ItemStack(Material.BOW);
         ItemMeta metaData = enderbogen.getItemMeta();
         metaData.setDisplayName("Enderbogen");
@@ -51,28 +78,38 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         enderbogenRezept.setIngredient('/', Material.STICK);
         enderbogenRezept.setIngredient('S', Material.STRING);
         enderbogenRezept.setIngredient('*', Material.ENDER_PEARL);
-        this.getServer().addRecipe(enderbogenRezept);
+        return enderbogenRezept;
+    }
 
-        PluginManager pluginManager = this.getServer().getPluginManager();
-        EnderbogenListener listener = new EnderbogenListener();
-        pluginManager.registerEvents(listener, this);
-        ItemStack blume = new ItemStack(Material.NETHERITE_SCRAP);
-        ShapelessRecipe blumeRezept = new ShapelessRecipe(blume);
-        blumeRezept.addIngredient(Material.EGG);
-        this.getServer().addRecipe(blumeRezept);
+    private ShapelessRecipe getShapelessRecipe() {
+        ItemStack netheriteScrap = new ItemStack(Material.NETHERITE_SCRAP);
+        ShapelessRecipe netheriteScrapRecipe = new ShapelessRecipe(netheriteScrap);
+        netheriteScrapRecipe.addIngredient(Material.EGG);
+        return netheriteScrapRecipe;
+    }
 
-
+    private ShapelessRecipe getEnchantedGoldenAppleRecipe() {
         ItemStack enchantedGoldenAppleItem = new ItemStack(Material.ENCHANTED_GOLDEN_APPLE);
         ShapelessRecipe enchantedGoldenAppleRecipe = new ShapelessRecipe(enchantedGoldenAppleItem);
         enchantedGoldenAppleRecipe.addIngredient(8, Material.GOLD_BLOCK);
         enchantedGoldenAppleRecipe.addIngredient(1, Material.APPLE);
-        this.getServer().addRecipe(enchantedGoldenAppleRecipe);
+        return enchantedGoldenAppleRecipe;
+    }
 
+    private ShapelessRecipe gitnetherwartrecipe() {
+        ItemStack netherwartItem = new ItemStack(Material.NETHER_WART);
+        ShapelessRecipe netherwartRecipe = new ShapelessRecipe(netherwartItem);
+        netherwartRecipe.addIngredient(8, Material.HAY_BLOCK);
+        netherwartRecipe.addIngredient(1, Material.NETHER_BRICKS);
+        return netherwartRecipe;
+    }
+
+    private ShapelessRecipe getBlazerodRezept() {
         ItemStack blazerod = new ItemStack(Material.BLAZE_ROD);
         ShapelessRecipe blazerodRezept = new ShapelessRecipe(blazerod);
         blazerodRezept.addIngredient(Material.GOLD_INGOT);
         blazerodRezept.addIngredient(2, Material.STICK);
-        this.getServer().addRecipe(blazerodRezept);
+        return blazerodRezept;
     }
 
     public void onDisable() {
