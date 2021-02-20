@@ -39,6 +39,7 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         }
     }
 
+    @Deprecated
     public class DragonbogenListener implements Listener {
         @EventHandler
         public void onEvent(ProjectileHitEvent event) {
@@ -96,7 +97,7 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         return enchantedGoldenAppleRecipe;
     }
 
-    private ShapelessRecipe gitnetherwartrecipe() {
+    private ShapelessRecipe gitNetherwartRecipe() {
         ItemStack netherwartItem = new ItemStack(Material.NETHER_WART);
         ShapelessRecipe netherwartRecipe = new ShapelessRecipe(netherwartItem);
         netherwartRecipe.addIngredient(8, Material.HAY_BLOCK);
