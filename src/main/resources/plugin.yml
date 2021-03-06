@@ -3,7 +3,6 @@ version: @version@
 description: An plugin for Spigot with Gradle
 main: net.javaforge.minecraft.spigot.plugin.NetheriteScrapPlugin
 authors : [Vincent, Paju]
-depend: [WorldGuard, WGCustomFlags]
 api-version: 1.16
 
 commands:
