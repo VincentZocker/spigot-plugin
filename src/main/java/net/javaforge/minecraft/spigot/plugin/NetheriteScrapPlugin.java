@@ -1,5 +1,10 @@
 package net.javaforge.minecraft.spigot.plugin;
 
+import net.javaforge.minecraft.spigot.plugin.enchant.Freeze;
+import net.javaforge.minecraft.spigot.plugin.enchant.commands.Enchanter;
+import net.javaforge.minecraft.spigot.plugin.enchant.enchants.Savior;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
@@ -12,11 +17,15 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.projectiles.ProjectileSource;
 
 public class NetheriteScrapPlugin extends JavaPlugin {
+
+    private static String prefix = ChatColor.DARK_AQUA + "CrazyEnchants » " + ChatColor.GRAY;
+    //  static WGCustomFlagsPlugin wg;
 
     public class EnderbogenListener implements Listener {
         @EventHandler
@@ -65,6 +74,33 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         this.getServer().addRecipe(getEnchantedGoldenAppleRecipe());
 
         this.getServer().addRecipe(getBlazerodRezept());
+
+        buildEnchants();
+        enableWGCustomFlags();
+        Freeze.addMain(this);
+
+        Enchanter enchanter = new Enchanter();
+        Bukkit.getPluginCommand("enchanter").setExecutor(enchanter);
+        Bukkit.getPluginManager().registerEvents(enchanter, this);
+        Bukkit.getPluginManager().registerEvents(new Freeze(), this);
+//        Bukkit.getPluginManager().registerEvents(new BlockBreak(), this);
+//        Bukkit.getPluginManager().registerEvents(new PlayerInteract(this), this);
+//        Bukkit.getPluginManager().registerEvents(new EntityDamage(), this);
+//        Bukkit.getPluginManager().registerEvents(new EnchantAdd(), this);
+//        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new CheckEnchants(), 0, 5);
+    }
+
+    private boolean enableWGCustomFlags() {
+        Plugin plugin = getServer().getPluginManager().getPlugin("WGCustomFlags");
+
+//        if (plugin == null || !(plugin instanceof WGCustomFlagsPlugin)) {
+//            getLogger().severe("CrazyEnchants couldn't load as dependency plugins were not enabled");
+//            setEnabled(false);
+//            return false;
+//        }
+//
+//        wg = (WGCustomFlagsPlugin) plugin;
+        return true;
     }
 
     private ShapedRecipe getEnderbogenRezept() {
@@ -115,4 +151,37 @@ public class NetheriteScrapPlugin extends JavaPlugin {
 
     public void onDisable() {
     }
+    public static String getPrefix() {
+        return prefix;
+    }
+
+    private void buildEnchants() {
+//        new AntiLava();
+//        new Blast();
+//        new Blind();
+//        new Combo();
+//        new Confusion();
+//        new Enderman();
+//        new Featherweight();
+        new Freeze();
+//        new Guards();
+//        new Glow();
+//        new Haste();
+//        new Humble();
+//        new Jump();
+//        new LifeSaver();
+//        new Lightning();
+//        new Lucky();
+//        new LuckyOre();
+//        new Overworld();
+//        new Poison();
+//        new Regain();
+        new Savior();
+//        new Speed();
+//        new Strength();
+//        new Sturdy();
+//        new Toxic();
+//        new XP();
+    }
+
 }
