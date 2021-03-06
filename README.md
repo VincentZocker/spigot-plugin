@@ -59,4 +59,4 @@ look for current plugin
 
 remove old plugin
 
-```rm plugins/<Your OLD NetherScrap-XXXXX.jar>```
+```rm ~/dataSpigot/plugins/<Your OLD NetherScrap-XXXXX.jar>```
