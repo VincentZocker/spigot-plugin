@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 public class Savior extends Enchant {
 
 	public Savior() {
-		super("Savior", 4, Rarity.LEGENDARY, new ItemSet[]{ItemSet.HELMET}, "Chance to heal when low on health", 15, 5, false, true);
+		super("Savior", 4, Rarity.LEGENDARY, new ItemSet[]{ItemSet.HELMET}, "Chance to heal when low on health", 10, 5, false, true);
 
 	}
 	
