@@ -80,7 +80,7 @@ public class NetheriteScrapPlugin extends JavaPlugin {
         Freeze.addMain(this);
 
         Enchanter enchanter = new Enchanter();
-        Bukkit.getPluginCommand("enchanter").setExecutor(enchanter);
+        //Bukkit.getPluginCommand("enchanter").setExecutor(enchanter);
         Bukkit.getPluginManager().registerEvents(enchanter, this);
         Bukkit.getPluginManager().registerEvents(new Freeze(), this);
 //        Bukkit.getPluginManager().registerEvents(new BlockBreak(), this);
