@@ -60,3 +60,7 @@ look for current plugin
 remove old plugin
 
 ```rm ~/dataSpigot/plugins/<Your OLD NetherScrap-XXXXX.jar>```
+
+### Show docker log
+
+`docker logs -f spigot`
