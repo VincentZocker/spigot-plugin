@@ -50,7 +50,9 @@ docker run -d \
 Given url copy to browser and create pull request, after merge
 
 ```git checkout master```
+
 ```git pull```
+
 ```git tag -a <your number> -m "your message"```
 
 ### Apply new plugin
