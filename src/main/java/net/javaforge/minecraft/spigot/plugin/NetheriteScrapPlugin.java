@@ -2,7 +2,7 @@ package net.javaforge.minecraft.spigot.plugin;
 
 import net.javaforge.minecraft.spigot.plugin.enchant.Freeze;
 import net.javaforge.minecraft.spigot.plugin.enchant.commands.Enchanter;
-import net.javaforge.minecraft.spigot.plugin.enchant.enchants.Savior;
+import net.javaforge.minecraft.spigot.plugin.enchant.enchants.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -164,24 +164,24 @@ public class NetheriteScrapPlugin extends JavaPlugin {
 //        new Enderman();
 //        new Featherweight();
         new Freeze();
-//        new Guards();
+        new Guards();
 //        new Glow();
 //        new Haste();
 //        new Humble();
 //        new Jump();
-//        new LifeSaver();
+        new LifeSaver();
 //        new Lightning();
 //        new Lucky();
 //        new LuckyOre();
-//        new Overworld();
+        new Overworld();
 //        new Poison();
 //        new Regain();
         new Savior();
 //        new Speed();
-//        new Strength();
+        new Strength();
 //        new Sturdy();
 //        new Toxic();
-//        new XP();
+        new XP();
     }
 
 }
