@@ -163,10 +163,10 @@ public class NetheriteScrapPlugin extends JavaPlugin {
 //        new Confusion();
 //        new Enderman();
 //        new Featherweight();
-        new Freeze();
-        new Guards();
+//        new Freeze();
+//        new Guards();
 //        new Glow();
-//        new Haste();
+        new Haste();
 //        new Humble();
 //        new Jump();
         new LifeSaver();
@@ -180,7 +180,7 @@ public class NetheriteScrapPlugin extends JavaPlugin {
 //        new Speed();
         new Strength();
 //        new Sturdy();
-//        new Toxic();
+        new Toxic();
         new XP();
     }
 
