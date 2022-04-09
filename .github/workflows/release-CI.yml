@@ -21,7 +21,7 @@ jobs:
         env:
           VERSION: ${{ github.ref }}
       - name: grab artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
           name: NetherScrap plugin
