@@ -6,12 +6,12 @@ buildscript {
     }
 
     dependencies {
-        classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
+        classpath "com.github.jengelman.gradle.plugins:shadow:6.1.0"
     }
 }
 
+apply plugin: "com.github.johnrengelman.shadow"
 apply plugin: 'java'
-apply plugin: 'eu.appsatori.fatjar'
 
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -58,11 +58,15 @@ println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getPro
 println('Plugin version: ' + version)
 
 dependencies {
-    compile "org.spigotmc:spigot-api:${minecraftVersion}.1-SNAPSHOT", {
-        ext { fatJarExclude = true }
-    }
-
+    compile "org.spigotmc:spigot-api:${minecraftVersion}.1-SNAPSHOT"
     compile 'com.google.guava:guava:23.0'
+}
+
+// Output to build/libs/shadow.jar
+shadowJar {
+    archiveBaseName.set('shadow')
+    archiveClassifier.set('')
+    archiveVersion.set('')
 }
 
 processResources {
@@ -99,7 +103,6 @@ task startDevServer(dependsOn: ['cleanPlugins', 'copyPluginToTestserver', 'setup
 jar {
     actions = []
     dependsOn = []
-    dependsOn('fatJar')
 }
 
 static def getTag() {
